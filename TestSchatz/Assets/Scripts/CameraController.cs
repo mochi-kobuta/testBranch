@@ -24,6 +24,8 @@ public class CameraController : MonoBehaviour {
   //メンバ変数
   private bool pointCheckFlag = false;
   private Vector3 commitCameraPosition = new Vector3();
+  private float INIT_VALUE_SIGN_X = 1.0f;
+  private float INIT_VALUE_SIGN_Y = -1.0f;
 
   void Start () {
       pointCheckFlag = pointCheck();
@@ -32,7 +34,6 @@ public class CameraController : MonoBehaviour {
 	void Update () {
 
     //X方向と方向の入り口と出口の情報があった場合カメラの追随制限をかける
-    //Debug.Log(pointCheckFlag);
     if (pointCheckFlag)
     { 
         var sPosX = followTargetObject.transform.position.x - startPointX.transform.position.x;
@@ -43,16 +44,21 @@ public class CameraController : MonoBehaviour {
         //カメラ追随位置初期化
         if(followTargetObjectPositionX > 0)
         {
-            commitCameraPosition.x = followTargetObject.transform.position.x + (float)followTargetObjectPositionX;
+            commitCameraPosition.x = followTargetObject.transform.position.x;
         } else {
             commitCameraPosition.x = followTargetObject.transform.position.x;
         }
 
         if (followTargetObjectPositionY > 0)
         {
-            commitCameraPosition.y = followTargetObject.transform.position.y + (float)followTargetObjectPositionY;
+            commitCameraPosition.y = followTargetObject.transform.position.y;
         } else {
             commitCameraPosition.y = followTargetObject.transform.position.y;
+        }
+
+
+        if(Input.GetKey(KeyCode.Space)){
+            
         }
 
 
@@ -67,10 +73,12 @@ public class CameraController : MonoBehaviour {
 
         if (sPosY <= ConstantList.MAIN_CAMERA_HEIGHT_SIZE) {
             commitCameraPosition.y = startPointY.transform.position.y + ConstantList.MAIN_CAMERA_HEIGHT_SIZE;
+            INIT_VALUE_SIGN_Y = 1.0f;
         }
 
         if (ePosY <= ConstantList.MAIN_CAMERA_HEIGHT_SIZE) {
             commitCameraPosition.y = endPointY.transform.position.y - ConstantList.MAIN_CAMERA_HEIGHT_SIZE;
+            INIT_VALUE_SIGN_Y = -1.0f;
         }
 
         gameObject.transform.position = new Vector3(commitCameraPosition.x, commitCameraPosition.y, ConstantList.INIT_CAMERA_POSITION_Z);
