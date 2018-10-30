@@ -11,7 +11,7 @@ public class titleController : MonoBehaviour {
 	}
 	
 	void Update () {
-      if(Input.GetKeyDown(KeyCode.Space))
+      if(Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
       {
           SceneManager.LoadScene("city1");
       }
