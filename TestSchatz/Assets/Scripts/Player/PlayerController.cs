@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameConstant;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     private Animator AniCtrl;
 
-	void Start () {
+	  void Start () {
 
         this.AniCtrl = gameObject.GetComponent<Animator>();
     }
 	
-	void Update () {
+	  void Update () {
         //方向キー移動とアニメーション開始
         
         if (Input.GetKey(KeyCode.DownArrow))
@@ -67,7 +68,12 @@ public class PlayerController : MonoBehaviour {
             this.AniCtrl.SetBool("RightWalk", false);
             this.AniCtrl.SetBool("RightIdol", true);
         }
-   
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        {
+          SceneManager.LoadScene("statusMenu");
+        }
+
     }
 
     void allIdolClear()
