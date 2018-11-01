@@ -16,5 +16,19 @@ namespace GameConstant {
 
         //city1でのy方向のプレイヤー位置初期値
         public const float CITY1_PLAYER_INIT_POSITION_Y = 1.5f;
-  }
+
+        public enum statusMainContents
+        {
+            アイテム = 1,
+            装備 = 2,
+            ステータス = 3,
+            特殊 = 4,
+        }
+
+        public enum charactorType
+        {
+            エリス = 1,
+            レイラ = 2,
+        }
+    }
 }
