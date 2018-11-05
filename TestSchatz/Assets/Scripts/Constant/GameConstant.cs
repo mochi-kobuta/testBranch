@@ -6,6 +6,7 @@ namespace GameConstant {
     public class ConstantList : MonoBehaviour {
 
         public const float PLAYER_MOVE_SPEED = 0.025f;
+        public const float NPC_MOVE_SPEED = 0.025f;
 
         //カメラオブジェクトのSizeによって値調整
         public const float INIT_CAMERA_POSITION_Z = -10.0f;

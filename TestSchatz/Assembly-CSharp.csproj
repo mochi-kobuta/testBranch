@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\changeAnimationTextureController.cs" />
     <Compile Include="Assets\Scripts\Constant\GameConstant.cs" />
+    <Compile Include="Assets\Scripts\npcWalk.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Scene\sceneController.cs" />
     <Compile Include="Assets\Scripts\status\statusDetailController.cs" />
