@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameConstant { 
-    public class ConstantList : MonoBehaviour {
+    public class ConstantList {
 
         public const float PLAYER_MOVE_SPEED = 0.025f;
         public const float NPC_MOVE_SPEED = 0.025f;

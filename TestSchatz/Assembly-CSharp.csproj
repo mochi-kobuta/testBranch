@@ -62,16 +62,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
-    <Compile Include="Assets\Scripts\changeAnimationTextureController.cs" />
+    <Compile Include="Assets\Scripts\Common\changeAnimationTextureController.cs" />
+    <Compile Include="Assets\Scripts\Common\GameInitializeController.cs" />
+    <Compile Include="Assets\Scripts\Common\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\Common\PossessionData.cs" />
+    <Compile Include="Assets\Scripts\Common\textOpen.cs" />
     <Compile Include="Assets\Scripts\Constant\GameConstant.cs" />
-    <Compile Include="Assets\Scripts\npcWalk.cs" />
+    <Compile Include="Assets\Scripts\Npc\npcWalkController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerObjectController.cs" />
     <Compile Include="Assets\Scripts\Scene\sceneController.cs" />
     <Compile Include="Assets\Scripts\status\statusDetailController.cs" />
     <Compile Include="Assets\Scripts\status\statusMenuController.cs" />
     <Compile Include="Assets\Scripts\status\statusMenuMainCarsolController.cs" />
     <Compile Include="Assets\Scripts\status\statusMenuSelectCarsolController.cs" />
-    <Compile Include="Assets\Scripts\textOpen.cs" />
     <Compile Include="Assets\Scripts\Title\titleController.cs" />
     <None Include="Assets\FileReadTest.txt" />
     <Reference Include="UnityEditor.StandardEvents">
