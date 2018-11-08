@@ -80,8 +80,12 @@
     <Compile Include="Assets\Scripts\Scene\statusMenu\statusMenuMainCarsolController.cs" />
     <Compile Include="Assets\Scripts\Scene\statusMenu\statusMenuSelectCarsolController.cs" />
     <Compile Include="Assets\Scripts\Scene\title\titleController.cs" />
+    <None Include="Assets\Resources\Data\Text\Profile\layra.txt" />
     <None Include="Assets\Data\Text\Profile\erice.txt" />
+    <None Include="Assets\Resources\Data\Json\InitializeData\Player\ericeJson.txt" />
     <None Include="Assets\Data\Text\Profile\layra.txt" />
+    <None Include="Assets\Resources\Data\Json\InitializeData\Player\layraJson.txt" />
+    <None Include="Assets\Resources\Data\Text\Profile\erice.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/小林/Desktop/Unity/testBranch/TestSchatz/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

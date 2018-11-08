@@ -7,8 +7,8 @@ public class titleController : MonoBehaviour {
 
 
 	void Start () {
-		
-	}
+        gameObject.GetComponent<PlayerObjectLoadController>().initLoad();
+    }
 	
 	void Update () {
       if(Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))

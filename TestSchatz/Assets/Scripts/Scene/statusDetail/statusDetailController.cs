@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using GameConstant;
 using Player;
 using UnityEditor;
+using System.IO;
+using System.Text;
 
 public class statusDetailController : MonoBehaviour {
 
@@ -27,6 +29,7 @@ public class statusDetailController : MonoBehaviour {
     public static int charaType;
 
     private PlayerData pData;
+    private TextAsset profData;
 
     private enum SpriteIndex
     {
@@ -37,26 +40,26 @@ public class statusDetailController : MonoBehaviour {
 
     void Start()
     {
-        Object[] uiSprites = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Assets/Texture/Parts/charactorProfile.png");
-
+        gameObject.GetComponent<PlayerObjectLoadController>().initLoad();
 
         var textName = "";
         if(charaType == (int)ConstantList.charactorType.エリス)
         {
-            textName = "erice.txt";
-            frameImage.sprite = (Sprite)uiSprites[(int)SpriteIndex.エリス];
+            textName = "Data/Text/Profile/erice";
+            frameImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_1");
             pData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
-
         }
         else if (charaType == (int)ConstantList.charactorType.レイラ) {
-            textName = "layra.txt";
-            frameImage.sprite = (Sprite)uiSprites[(int)SpriteIndex.レイラ]; ;
+            textName = "Data/Text/Profile/layra";
+            frameImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_0");
             pData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;
         }
 
-        var textOp = gameObject.GetComponent<textLoadController>();
-        profileText.text = textOp.ReadFile("Data/Text/Profile/" + textName);
-
+        
+        profData = Resources.Load<TextAsset>(textName);
+        Debug.Log(profData);
+        profileText.text = profData.text;
+        
 
         //ステータスの情報を格納
         hp.text = "HP " + pData.Hp.ToString() + " / " + pData.MaxHp.ToString();

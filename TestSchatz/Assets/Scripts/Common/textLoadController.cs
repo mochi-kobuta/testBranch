@@ -13,7 +13,6 @@ public class textLoadController : MonoBehaviour {
     public string ReadFile(string url)
     {
         // FileReadTest.txtファイルを読み込む
-        Debug.Log(Application.dataPath + "/" + url);
         FileInfo fi = new FileInfo(Application.dataPath + "/" + url);
 
         try
@@ -22,7 +21,6 @@ public class textLoadController : MonoBehaviour {
             using (StreamReader sr = new StreamReader(fi.OpenRead(), Encoding.UTF8))
             {
                 guitxt = sr.ReadToEnd();
-                Debug.Log(guitxt);
             }
         }
         catch (Exception e)
