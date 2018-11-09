@@ -28,7 +28,7 @@ namespace Player {
         public int EquipArmor;     //装備中防具
 
         public int[] SkillList;    //特技/魔法のリスト
-        public int LimitSkill;     //必殺技
+        public int[] LimitSkill;     //必殺技
 
     }
 }

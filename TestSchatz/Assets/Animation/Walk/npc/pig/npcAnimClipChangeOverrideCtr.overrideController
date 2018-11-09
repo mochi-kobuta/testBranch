@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: npcAnimClipChangeOverrideCtr
+  m_Controller: {fileID: 9100000, guid: 3952e97dcfed1704aaaf3225b3c0445c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c25b13cb682da1e4599126f8b8cb59fc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ca33440d46fbc934ab15f12741c86a9d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ab3e2b948dff4674887d2eed3846038d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9465cfcbc828c2d4494cf2069ca9337a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c6cc62dc1ba530d4b81e8c2ab4910931, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cdfa108c3131eea439c6d18474111397, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3dec935f242ca2947a5f0165f32d44eb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 28e9730477387a34aa88beb65fe15774, type: 2}

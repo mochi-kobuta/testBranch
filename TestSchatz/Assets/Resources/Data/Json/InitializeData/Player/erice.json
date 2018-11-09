@@ -1,1 +1,1 @@
-{"Name":"erice","CharactorType":1,"Level":1,"Hp":11,"MaxHp":"11","Tp":5,"MaxTp":"5","Sg":0,"Atk":7,"Def":5,"MgAtk":5,"MgDef":4,"Spd":5,"Exp":0,"Luck":5,"EquipWeapon":1,"EquipArmor":1,"SkillList":[],"LimitSkill":1}
+{"Name":"erice","CharactorType":1,"Level":1,"Hp":11,"MaxHp":"11","Tp":5,"MaxTp":"5","Sg":0,"Atk":7,"Def":5,"MgAtk":5,"MgDef":4,"Spd":5,"Exp":0,"Luck":5,"EquipWeapon":1,"EquipArmor":1,"SkillList":[],"LimitSkill":[]}

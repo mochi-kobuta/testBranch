@@ -96,10 +96,13 @@ public class PlayerController : MonoBehaviour
             animetionStatus = (int)animetionDirection.RightIdol;
         }
 
+        //ステータス画面へ
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("statusMenu");
         }
+
+        
 
         //プレイヤー切り替え
         if (Input.GetKeyDown(KeyCode.RightShift))

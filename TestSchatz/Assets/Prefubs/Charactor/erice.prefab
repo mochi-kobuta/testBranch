@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115759880467462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -2.3, z: 0}
+  m_LocalPosition: {x: 1, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61766704682341180
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc13b755f523cd941970c1583b16ea6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeObj: {fileID: 0}
 --- !u!212 &212379023839313182
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -153,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 065251f3ac4f7df409cfdf110dd7c89a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 791f9bc48c46e4a4183ef94a95b42ad7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
