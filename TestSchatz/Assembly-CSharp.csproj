@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Common\GameInitializeController.cs" />
     <Compile Include="Assets\Scripts\Common\multipleSliceImageLoadController.cs" />
     <Compile Include="Assets\Scripts\Common\textLoadController.cs" />
+    <Compile Include="Assets\Scripts\Common\TpGageController.cs" />
     <Compile Include="Assets\Scripts\Constant\GameConstant.cs" />
     <Compile Include="Assets\Scripts\Data\DirectoryUtils.cs" />
     <Compile Include="Assets\Scripts\Data\SaveDataController.cs" />
