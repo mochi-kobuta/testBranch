@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
-using System; // UnityJsonを使う場合に必要
-using System.IO; // ファイル書き込みに必要
+using System.IO;
 
 public class city1Controller : MonoBehaviour {
 
@@ -15,34 +14,31 @@ public class city1Controller : MonoBehaviour {
 
         ericeData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
         layraData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;
-
-        //Debug.Log(layraData.pData.Name);
     }
 	
 	void Update () {
         //セーブ
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+
             Debug.Log("SAVE");
-            Debug.Log(Application.persistentDataPath);
-            ericeData.Atk = 999;
-            layraData.Atk = 900;
+            
 
             // JSONにシリアライズ
+            //エリスのデータ保存
             var json = JsonUtility.ToJson(ericeData);
-            // Assetsフォルダに保存する
-            /*
-            var path = Application.dataPath + "/" + "Resources/Data/Json/InitializeData/Player/layra.json";
-            var writer = new StreamWriter(path, false); // 上書き
-            writer.WriteLine(json);
-            writer.Flush();
-            writer.Close();
-            */
             string path = Application.persistentDataPath + "/" + "SaveData/Player";
             DirectoryUtils.SafeCreateDirectory(path);
+            File.WriteAllText(path + "/" + ericeData.Name + ".json", json);
 
-            File.WriteAllText(path + "/Test2.json", json);
-            
+            //レイラのデータ保存
+            json = JsonUtility.ToJson(layraData);
+            path = Application.persistentDataPath + "/" + "SaveData/Player";
+            DirectoryUtils.SafeCreateDirectory(path);
+
+            File.WriteAllText(path + "/" + layraData.Name + ".json", json);
+
+            Debug.Log("SAVE_END");
         }
     }
 }
