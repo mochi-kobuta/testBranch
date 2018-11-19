@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Equipment;
 using System.IO;
 using System;
+using GameConstant;
 
 public class isonDataMaker : MonoBehaviour {
 
@@ -51,7 +52,9 @@ public class isonDataMaker : MonoBehaviour {
         equipmentData.Detail = Detail.GetComponent<Text>().text;
 
         string json = JsonUtility.ToJson(equipmentData);
-        Debug.Log("Assets\\Resources\\Data\\Json\\Equipment\\" + equipmentData.Name + ".json");
-        File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\" + equipmentData.Name + ".json", json);
+        if(equipmentData.Type == (int)ConstantList.charactorType.エリス)
+            File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\erice\\" + equipmentData.Number + ".json", json);
+        else if (equipmentData.Type == (int)ConstantList.charactorType.レイラ)
+            File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\layra\\" + equipmentData.Number + ".json", json);
     }
 }
