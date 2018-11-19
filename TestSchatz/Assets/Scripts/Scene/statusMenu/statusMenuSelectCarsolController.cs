@@ -7,6 +7,7 @@ using GameConstant;
 public class statusMenuSelectCarsolController : MonoBehaviour {
 
     public bool selectCarsolControlleFlag;
+    public int selectedContent = 0;
 
     //statusMenuでの選択カーソルの移動速度
     public const float STATUS_MENU_SELECT_CARSOL_MOVE_POS_X = 650.0f;
@@ -77,16 +78,32 @@ public class statusMenuSelectCarsolController : MonoBehaviour {
                 //メインカーソルの操作停止
                 selectCarsolControlleFlag = false;
 
-                //コンテンツの決定
+                //どのキャラのデータを渡すのか
                 if (transform.localPosition.x == (float)carsolCharactorPositionX.ERICE)
                 {
                     statusDetailController.charaType = (int)ConstantList.charactorType.エリス;
-                    SceneManager.LoadScene("statusDetail");
                 }
                 else if (transform.localPosition.x == (float)carsolCharactorPositionX.LAYRA)
                 {
                     statusDetailController.charaType = (int)ConstantList.charactorType.レイラ;
+                }
+
+                //コンテンツの決定
+                if (selectedContent == (int)ConstantList.statusMainContents.アイテム)
+                {
+                    SceneManager.LoadScene("statusItem");
+                }
+                else if (selectedContent == (int)ConstantList.statusMainContents.ステータス)
+                {
                     SceneManager.LoadScene("statusDetail");
+                }
+                else if (selectedContent == (int)ConstantList.statusMainContents.装備)
+                {
+                    SceneManager.LoadScene("statusEquipment");
+                }
+                else if (selectedContent == (int)ConstantList.statusMainContents.特殊)
+                {
+                    SceneManager.LoadScene("statusSkill");
                 }
             }
         }

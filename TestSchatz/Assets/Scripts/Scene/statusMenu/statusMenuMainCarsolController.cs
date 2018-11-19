@@ -81,25 +81,28 @@ public class statusMenuMainCarsolController : MonoBehaviour {
                 //メインカーソルの操作停止
                 mainCarsolControlleFlag = false;
                 selectCarsolObj.GetComponent<statusMenuSelectCarsolController>().selectCarsolControlleFlag = true;
+                int selected = 0;
                 selectCarsolObj.SetActive(true);
 
                 //コンテンツの決定
                 if (transform.localPosition.x == (float)carsolContentsPositionX.ITEM)
                 {
-                    currentStatusContent = (int)ConstantList.statusMainContents.アイテム;
+                    selected = (int)ConstantList.statusMainContents.アイテム;
                 }
                 else if (transform.localPosition.x == (float)carsolContentsPositionX.EQUIPMENT)
                 {
-                    currentStatusContent = (int)ConstantList.statusMainContents.装備;
+                    selected = (int)ConstantList.statusMainContents.装備;
                 }
                 else if (transform.localPosition.x == (float)carsolContentsPositionX.STATUS)
                 {
-                    currentStatusContent = (int)ConstantList.statusMainContents.ステータス;
+                    selected = (int)ConstantList.statusMainContents.ステータス;
                 }
                 else if (transform.localPosition.x == (float)carsolContentsPositionX.SPECIAL)
                 {
-                    currentStatusContent = (int)ConstantList.statusMainContents.特殊;
+                    selected = (int)ConstantList.statusMainContents.特殊;
                 }
+
+                selectCarsolObj.GetComponent<statusMenuSelectCarsolController>().selectedContent = selected;
             }
         }
 

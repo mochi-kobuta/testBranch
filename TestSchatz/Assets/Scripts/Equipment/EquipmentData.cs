@@ -19,7 +19,7 @@ namespace Equipment
         public int Spd;            //早さ
         public int Luck;           //運
 
-        public int? Endurance;     //耐久度
+        public int Endurance;     //耐久度
         public string Detail;      //詳細
         //public int Weight;       //重さ
     }

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Common\changeAnimationTextureController.cs" />
     <Compile Include="Assets\Scripts\Common\GameInitializeController.cs" />
+    <Compile Include="Assets\Scripts\Common\isonDataMaker.cs" />
     <Compile Include="Assets\Scripts\Common\multipleSliceImageLoadController.cs" />
     <Compile Include="Assets\Scripts\Common\textLoadController.cs" />
     <Compile Include="Assets\Scripts\Common\TpGageController.cs" />

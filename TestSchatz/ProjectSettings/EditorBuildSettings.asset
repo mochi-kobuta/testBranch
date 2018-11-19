@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/statusDetail.unity
     guid: 50fc8514aedade647884eb60b1a6b338
+  - enabled: 1
+    path: Assets/Scenes/statusEquipment.unity
+    guid: 185034989dca8f74d93211479a26f88d
+  - enabled: 1
+    path: Assets/Scenes/statusItem.unity
+    guid: 8a5eaf73158e8ff4786d60d6d19a7436
   m_configObjects: {}
