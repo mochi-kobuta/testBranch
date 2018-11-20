@@ -6,6 +6,7 @@ using Equipment;
 using System.IO;
 using System;
 using GameConstant;
+using System.Security.Cryptography;
 
 public class isonDataMaker : MonoBehaviour {
 
@@ -51,6 +52,7 @@ public class isonDataMaker : MonoBehaviour {
         equipmentData.Spd = Convert.ToInt32(Spd.GetComponent<Text>().text);
         equipmentData.Detail = Detail.GetComponent<Text>().text;
 
+        AesManaged aes = new AesManaged();
         string json = JsonUtility.ToJson(equipmentData);
         if(equipmentData.Type == (int)ConstantList.charactorType.エリス)
             File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\erice\\" + equipmentData.Number + ".json", json);
