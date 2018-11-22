@@ -8,6 +8,7 @@ using Player;
 using UnityEditor;
 using System.IO;
 using System.Text;
+using Common;
 
 public class statusDetailController : MonoBehaviour {
 
@@ -24,9 +25,6 @@ public class statusDetailController : MonoBehaviour {
     public Text spd;
     public Text luck;
     public Text exp;
-    
-    //外部変更用変数
-    public static int charaType;
 
     private PlayerData pData;
     private TextAsset profData;
@@ -43,13 +41,13 @@ public class statusDetailController : MonoBehaviour {
         gameObject.GetComponent<PlayerObjectLoadController>().initLoad();
 
         var textName = "";
-        if(charaType == (int)ConstantList.charactorType.エリス)
+        if(CommonValue.charaType == (int)ConstantList.charactorType.エリス)
         {
             textName = "Data/Text/Profile/erice";
             frameImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_1");
             pData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
         }
-        else if (charaType == (int)ConstantList.charactorType.レイラ) {
+        else if (CommonValue.charaType == (int)ConstantList.charactorType.レイラ) {
             textName = "Data/Text/Profile/layra";
             frameImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_0");
             pData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;

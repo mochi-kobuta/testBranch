@@ -64,7 +64,7 @@
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Common\AESCrypter.cs" />
     <Compile Include="Assets\Scripts\Common\changeAnimationTextureController.cs" />
-    <Compile Include="Assets\Scripts\Common\GameInitializeController.cs" />
+    <Compile Include="Assets\Scripts\Common\CommonValue.cs" />
     <Compile Include="Assets\Scripts\Common\isonDataMaker.cs" />
     <Compile Include="Assets\Scripts\Common\multipleSliceImageLoadController.cs" />
     <Compile Include="Assets\Scripts\Common\textLoadController.cs" />
@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Scene\city\city1\city1Controller.cs" />
     <Compile Include="Assets\Scripts\Scene\sceneController.cs" />
     <Compile Include="Assets\Scripts\Scene\statusDetail\statusDetailController.cs" />
+    <Compile Include="Assets\Scripts\Scene\statusEquipment\statusEquipmentController.cs" />
     <Compile Include="Assets\Scripts\Scene\statusMenu\statusMenuController.cs" />
     <Compile Include="Assets\Scripts\Scene\statusMenu\statusMenuMainCarsolController.cs" />
     <Compile Include="Assets\Scripts\Scene\statusMenu\statusMenuSelectCarsolController.cs" />

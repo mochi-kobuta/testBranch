@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GameConstant;
+using Common;
 
 public class statusMenuSelectCarsolController : MonoBehaviour {
 
@@ -81,11 +82,11 @@ public class statusMenuSelectCarsolController : MonoBehaviour {
                 //どのキャラのデータを渡すのか
                 if (transform.localPosition.x == (float)carsolCharactorPositionX.ERICE)
                 {
-                    statusDetailController.charaType = (int)ConstantList.charactorType.エリス;
+                    CommonValue.charaType = (int)ConstantList.charactorType.エリス;
                 }
                 else if (transform.localPosition.x == (float)carsolCharactorPositionX.LAYRA)
                 {
-                    statusDetailController.charaType = (int)ConstantList.charactorType.レイラ;
+                    CommonValue.charaType = (int)ConstantList.charactorType.レイラ;
                 }
 
                 //コンテンツの決定
