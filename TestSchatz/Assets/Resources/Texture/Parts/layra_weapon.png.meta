@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8f077b8af3ba7c24d93a13e2234dfa29
+guid: 4ef81109860409d44a1a29529c6fc3eb
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "\u30A8\u30EA\u30B9\u6B66\u5668_0"
-    21300002: "\u30A8\u30EA\u30B9\u6B66\u5668_1"
-    21300004: "\u30A8\u30EA\u30B9\u6B66\u5668_2"
+    21300000: layra_weapon_1
+    21300002: layra_weapon_2
+    21300004: layra_weapon_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -44,7 +44,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u30A8\u30EA\u30B9\u6B66\u5668_0"
+      name: layra_weapon_1
       rect:
         serializedVersion: 2
         x: 0
@@ -128,39 +128,39 @@ TextureImporter:
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cac4c7baa93da844a279e64da9d2d26
+      spriteID: a77f59eabc6f4dd4d92f5126a775b5be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u30A8\u30EA\u30B9\u6B66\u5668_1"
+      name: layra_weapon_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 60
+        y: 59
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a323cad29cd15d4cb068c0b9c746ae3
+      spriteID: 8fe365bc3c7b298489331aa728fa40d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u30A8\u30EA\u30B9\u6B66\u5668_2"
+      name: layra_weapon_3
       rect:
         serializedVersion: 2
         x: 0
@@ -168,13 +168,13 @@ TextureImporter:
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a7a91fb29b83d40ac3b52c082bb435
+      spriteID: ce572727f4bafdc4ca5888cc6c9bbbca
       vertices: []
       indices: 
       edges: []
@@ -182,7 +182,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 722877601ec99914db8da4122a3ad83f
+    spriteID: de311ecd19f6cde449ee36591fa13ccc
     vertices: []
     indices: 
     edges: []

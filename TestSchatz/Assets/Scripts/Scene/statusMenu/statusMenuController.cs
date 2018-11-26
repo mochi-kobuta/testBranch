@@ -14,10 +14,13 @@ public class statusMenuController : MonoBehaviour {
     public Text maney, place;
 
     void Start () {
-        gameObject.GetComponent<PlayerObjectLoadController>().initLoad();
+        var gOb = gameObject.GetComponent<PlayerObjectLoadController>();
+        gOb.initLoad();
+        gOb.PossessionLoad();
 
         var ericeData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
         var layraData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;
+        var possessionData = GameObject.Find("possessionData").GetComponent<PossessionBaseController>().possessionData;
 
         //HPとMP情報
         /*
@@ -32,7 +35,7 @@ public class statusMenuController : MonoBehaviour {
         lTp.text = "TP " + layraData.Tp.ToString() + " / " + layraData.MaxTp.ToString();
         eTp.text = "TP " + ericeData.Tp.ToString() + " / " + ericeData.MaxTp.ToString();
 
-        maney.text = "所持金 10000G";
+        maney.text = "所持金 " + possessionData.Maney.ToString();
         place.text = "はじまりの森";
     }
 	

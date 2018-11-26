@@ -7,28 +7,34 @@ using System.IO;
 using System;
 using GameConstant;
 using System.Security.Cryptography;
+using Player;
 
-public class isonDataMaker : MonoBehaviour {
+public class isonDataMaker : MonoBehaviour
+{
 
-    public Button EquipmenDatatMakeButton;
-    EquipmentData equipmentData;
+    public Button EquipmenDatatMakeButton, PossesionDataMakeButton;
+    private EquipmentData equipmentData;
 
-    void Start () {
-        EquipmenDatatMakeButton.onClick.AddListener(EquipmenDatatMake);
+    private TextAsset textAsset;
+    private PossessionData possessionData;
+
+    void Start()
+    {
+        EquipmenDatatMakeButton.onClick.AddListener(EquipmenDataMake);
+        PossesionDataMakeButton.onClick.AddListener(PossesionDataMake);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public void EquipmenDatatMake()
+    public void EquipmenDataMake()
     {
         equipmentData = new EquipmentData();
 
         var Number = GameObject.Find("EquipMentData/makeParam/Number");
-        Debug.Log(Number.GetComponent<Text>().text);
         var Name = GameObject.Find("EquipMentData/makeParam/Name");
         var Type = GameObject.Find("EquipMentData/makeParam/Type");
         var Atk = GameObject.Find("EquipMentData/makeParam/Atk");
@@ -54,9 +60,42 @@ public class isonDataMaker : MonoBehaviour {
 
         AesManaged aes = new AesManaged();
         string json = JsonUtility.ToJson(equipmentData);
-        if(equipmentData.Type == (int)ConstantList.charactorType.エリス)
+        if (equipmentData.Type == (int)ConstantList.charactorType.エリス)
             File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\erice\\" + equipmentData.Number + ".json", json);
         else if (equipmentData.Type == (int)ConstantList.charactorType.レイラ)
             File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\layra\\" + equipmentData.Number + ".json", json);
+    }
+
+    public void PossesionDataMake()
+    {
+        
+        possessionData = new PossessionData();
+        possessionData.layraEquipList = new EquipmentData[4];
+        possessionData.ericeEquipList = new EquipmentData[4];
+
+        var maney = GameObject.Find("PossesionData/maney");
+        possessionData.Maney = Convert.ToInt32(maney.GetComponent<Text>().text);
+
+        for(int i = 0; i < 4; i++)
+        {
+            equipmentData = new EquipmentData();
+            //jsonファイルからデシリアイズして各EquipmentDataのデータを登録するためにまたjsonに戻す
+            textAsset = Resources.Load<TextAsset>("Data/Json/Equipment/layra/" + i);
+            JsonUtility.FromJsonOverwrite(textAsset.text, equipmentData);
+            possessionData.layraEquipList[i] = equipmentData;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            equipmentData = new EquipmentData();
+            //jsonファイルからデシリアイズして各EquipmentDataのデータを登録するためにまたjsonに戻す
+            textAsset = Resources.Load<TextAsset>("Data/Json/Equipment/erice/" + i);
+            JsonUtility.FromJsonOverwrite(textAsset.text, equipmentData);
+            possessionData.ericeEquipList[i] = equipmentData;
+        }
+        string json = JsonUtility.ToJson(possessionData);
+        File.WriteAllText("Assets\\Resources\\Data\\Json\\Possession\\possession.json", json);
+
+
     }
 }

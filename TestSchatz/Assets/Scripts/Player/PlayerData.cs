@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Equipment;
 
 namespace Player {
 
@@ -24,8 +25,8 @@ namespace Player {
         public int Exp;            //総獲得経験値
         public int Luck;            //運
 
-        public int EquipWeapon;    //装備中武器
-        public int EquipArmor;     //装備中防具
+        public EquipmentData EquipWeapon;    //装備中武器
+        public EquipmentData EquipArmor;     //装備中防具
 
         public int[] SkillList;    //特技/魔法のリスト
         public int[] LimitSkill;     //必殺技

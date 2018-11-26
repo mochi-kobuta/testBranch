@@ -57,18 +57,26 @@ public class statusDetailController : MonoBehaviour {
         profData = Resources.Load<TextAsset>(textName);
         Debug.Log(profData);
         profileText.text = profData.text;
-        
+
 
         //ステータスの情報を格納
+        //装備中の武器があれば基本ステータスに追加
+        int wAtk = pData.EquipWeapon.Atk;
+        int wDef = pData.EquipWeapon.Def;
+        int wMgAtk = pData.EquipWeapon.MgAtk;
+        int wMgDef = pData.EquipWeapon.MgDef;
+        int wSpd = pData.EquipWeapon.Spd;
+        int wLuck = pData.EquipWeapon.Luck;
+
         hp.text = "HP " + pData.Hp.ToString() + " / " + pData.MaxHp.ToString();
         tp.text = "TP " + pData.Tp.ToString() + " / " + pData.MaxTp.ToString();
         level.text = "レベル " + pData.Level.ToString();
-        atk.text = "攻撃力 " + pData.Atk.ToString();
-        def.text = "防御力 " + pData.Def.ToString();
-        mAtk.text = "魔法攻撃力 " + pData.MgAtk.ToString();
-        mDef.text = "魔法防御力 " + pData.MgDef.ToString();
-        spd.text = "早さ " + pData.Spd.ToString() ;
-        luck.text = "運 " + pData.Luck.ToString();
+        atk.text = "攻撃力 " + (pData.Atk + wAtk).ToString();
+        def.text = "防御力 " + (pData.Def + wDef).ToString();
+        mAtk.text = "魔法攻撃力 " + (pData.MgAtk + wMgAtk).ToString();
+        mDef.text = "魔法防御力 " + (pData.MgDef + wMgDef).ToString();
+        spd.text = "早さ " + (pData.Spd + wSpd).ToString() ;
+        luck.text = "運 " + (pData.Luck + wLuck).ToString();
         exp.text = "総獲得経験値 " + pData.Exp.ToString();
 
     }

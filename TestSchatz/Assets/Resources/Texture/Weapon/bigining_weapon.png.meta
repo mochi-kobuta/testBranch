@@ -2,8 +2,8 @@ fileFormatVersion: 2
 guid: f664043ca01155c4e8406dacd6ba1077
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Common_0
-    21300002: Common_1
+    21300000: bigining_weapon_erice
+    21300002: bigining_weapon_layra
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Common_0
+      name: bigining_weapon_erice
       rect:
         serializedVersion: 2
         x: 0
@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Common_1
+      name: bigining_weapon_layra
       rect:
         serializedVersion: 2
         x: 0

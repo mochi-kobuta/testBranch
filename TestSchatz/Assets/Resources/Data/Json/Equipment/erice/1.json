@@ -1,1 +1,1 @@
-{"Number":1,"Name":"ほうき","Type":1,"Atk":5,"Def":2,"MgAtk":3,"MgDef":2,"Spd":1,"Luck":1,"Endurance":20,"Detail":"掃除用の一般的なほうき。\n図書館から持って来てしまったらしい。"}
+{"Number":1,"Name":"ロングソード","Type":1,"Atk":11,"Def":4,"MgAtk":3,"MgDef":3,"Spd":1,"Luck":2,"Endurance":40,"Detail":"一般的な長さの剣。\n","setOn":false}

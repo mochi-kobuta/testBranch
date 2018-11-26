@@ -31,5 +31,8 @@ namespace GameConstant {
             エリス = 1,
             レイラ = 2,
         }
+
+        public const int BEGNING_WEAPON_LAYLA = 0;
+        public const int BEGNING_WEAPON_ERICE = 0;
     }
 }

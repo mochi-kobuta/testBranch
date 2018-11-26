@@ -21,6 +21,7 @@ namespace Equipment
 
         public int Endurance;     //耐久度
         public string Detail;      //詳細
+        public bool setOn;         //装備しているかどうか
         //public int Weight;       //重さ
     }
 }

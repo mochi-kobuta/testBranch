@@ -1,1 +1,1 @@
-{"Number":2,"Name":"樫の木のつえ","Type":2,"Atk":7,"Def":4,"MgAtk":9,"MgDef":5,"Spd":1,"Luck":3,"Endurance":40,"Detail":"不思議な力の宿る木の枝から作られたつえ。"}
+{"Number":2,"Name":"ハイウィザード","Type":2,"Atk":10,"Def":11,"MgAtk":16,"MgDef":15,"Spd":1,"Luck":3,"Endurance":100,"Detail":"一流の魔法使いが扱える魔法の武器。","setOn":false}

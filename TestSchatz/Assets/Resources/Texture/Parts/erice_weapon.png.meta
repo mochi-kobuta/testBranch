@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ef81109860409d44a1a29529c6fc3eb
+guid: 8f077b8af3ba7c24d93a13e2234dfa29
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "\u30EC\u30A4\u30E9\u6B66\u5668_0"
-    21300002: "\u30EC\u30A4\u30E9\u6B66\u5668_1"
-    21300004: "\u30EC\u30A4\u30E9\u6B66\u5668_2"
+    21300000: erice_weapon_1
+    21300002: erice_weapon_2
+    21300004: erice_weapon_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -44,7 +44,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u30EC\u30A4\u30E9\u6B66\u5668_0"
+      name: erice_weapon_1
       rect:
         serializedVersion: 2
         x: 0
@@ -128,19 +128,19 @@ TextureImporter:
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a77f59eabc6f4dd4d92f5126a775b5be
+      spriteID: 5cac4c7baa93da844a279e64da9d2d26
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u30EC\u30A4\u30E9\u6B66\u5668_1"
+      name: erice_weapon_2
       rect:
         serializedVersion: 2
         x: 0
@@ -148,19 +148,19 @@ TextureImporter:
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fe365bc3c7b298489331aa728fa40d6
+      spriteID: 5a323cad29cd15d4cb068c0b9c746ae3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u30EC\u30A4\u30E9\u6B66\u5668_2"
+      name: erice_weapon_3
       rect:
         serializedVersion: 2
         x: 0
@@ -168,13 +168,13 @@ TextureImporter:
         width: 210
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce572727f4bafdc4ca5888cc6c9bbbca
+      spriteID: d9a7a91fb29b83d40ac3b52c082bb435
       vertices: []
       indices: 
       edges: []
@@ -182,7 +182,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: de311ecd19f6cde449ee36591fa13ccc
+    spriteID: 722877601ec99914db8da4122a3ad83f
     vertices: []
     indices: 
     edges: []
