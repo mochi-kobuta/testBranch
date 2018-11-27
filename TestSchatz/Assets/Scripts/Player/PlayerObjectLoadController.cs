@@ -134,7 +134,6 @@ public class PlayerObjectLoadController : MonoBehaviour
             profData = Resources.Load<TextAsset>("Data/Json/InitializeData/Possession/possession");
             JsonUtility.FromJsonOverwrite(profData.text, possessionObject.AddComponent<PossessionBaseController>().possessionData);
         }
-        Debug.Log(possessionObject);
         DontDestroyOnLoad(possessionObject);
     }
 }

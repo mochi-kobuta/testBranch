@@ -53,7 +53,7 @@ public class statusEquipmentController : MonoBehaviour {
         possessionData = GameObject.Find("possessionData").GetComponent<PossessionBaseController>().possessionData;
 
 
-        state = STATE.なし;
+        state = STATE.初期読み込み_設定;
 
         
 
@@ -78,9 +78,12 @@ public class statusEquipmentController : MonoBehaviour {
                 break;
 
             case STATE.更新:
-
+                UpdateEquipDataList();
+                DataLoad();
                 break;
         }
+
+       
     }
 
 
@@ -150,7 +153,6 @@ public class statusEquipmentController : MonoBehaviour {
             equipFrame.SetParent(content, false);
             
             var equipDetail = equipFrame.FindChild("equipDetail");
-            Debug.Log(equipDetail);
 
             var equipName = equipDetail.FindChild("equip");
             var detail = equipDetail.FindChild("deteil");
@@ -204,13 +206,17 @@ public class statusEquipmentController : MonoBehaviour {
                     equip.setOn = false;
                 }
             }
-        }    
+        }
+
+        //STATEの健康
+        state = STATE.更新;
     }
 
 
     //更新用
     void UpdateEquipDataList()
     {
-
+        var FrameList = GameObject.Find("Scroll View/Viewport/Content/equipFrame");
+        Destroy(FrameList);
     }
 }
