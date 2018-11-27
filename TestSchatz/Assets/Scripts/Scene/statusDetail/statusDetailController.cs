@@ -83,7 +83,7 @@ public class statusDetailController : MonoBehaviour {
     
 
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("statusMenu");
         }

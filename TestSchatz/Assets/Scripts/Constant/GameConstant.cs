@@ -32,6 +32,20 @@ namespace GameConstant {
             レイラ = 2,
         }
 
+        public enum weaponCategory
+        {
+            なし = 0,
+            棒 = 1,
+            剣 = 2,
+            刀 = 3,
+            古代剣 = 4,
+
+            器具 = 5,
+            つえ = 6,
+            ロッド = 7,
+            古代具 = 8
+        }
+
         public const int BEGNING_WEAPON_LAYLA = 0;
         public const int BEGNING_WEAPON_ERICE = 0;
     }

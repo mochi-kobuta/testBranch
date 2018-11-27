@@ -44,7 +44,7 @@ public class isonDataMaker : MonoBehaviour
         var Luck = GameObject.Find("EquipMentData/makeParam/Luck");
         var Spd = GameObject.Find("EquipMentData/makeParam/Spd");
         var Detail = GameObject.Find("EquipMentData/makeParam/Detail");
-        var Endurance = GameObject.Find("EquipMentData/makeParam/Endurance");
+        var Category = GameObject.Find("EquipMentData/makeParam/Category");
 
         equipmentData.Number = Convert.ToInt32(Number.GetComponent<Text>().text);
         equipmentData.Name = Name.GetComponent<Text>().text;
@@ -54,7 +54,7 @@ public class isonDataMaker : MonoBehaviour
         equipmentData.MgAtk = Convert.ToInt32(MgAtk.GetComponent<Text>().text);
         equipmentData.MgDef = Convert.ToInt32(MgDef.GetComponent<Text>().text);
         equipmentData.Luck = Convert.ToInt32(Luck.GetComponent<Text>().text);
-        equipmentData.Endurance = Convert.ToInt32(Endurance.GetComponent<Text>().text);
+        equipmentData.Category = Convert.ToInt32(Category.GetComponent<Text>().text);
         equipmentData.Spd = Convert.ToInt32(Spd.GetComponent<Text>().text);
         equipmentData.Detail = Detail.GetComponent<Text>().text;
 
@@ -94,7 +94,7 @@ public class isonDataMaker : MonoBehaviour
             possessionData.ericeEquipList[i] = equipmentData;
         }
         string json = JsonUtility.ToJson(possessionData);
-        File.WriteAllText("Assets\\Resources\\Data\\Json\\Possession\\possession.json", json);
+        File.WriteAllText("Assets\\Resources\\Data\\Json\\InitializeData\\Possession\\possession.json", json);
 
 
     }

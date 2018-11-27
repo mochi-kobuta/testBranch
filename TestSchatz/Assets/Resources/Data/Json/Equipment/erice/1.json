@@ -1,1 +1,1 @@
-{"Number":1,"Name":"ロングソード","Type":1,"Atk":11,"Def":4,"MgAtk":3,"MgDef":3,"Spd":1,"Luck":2,"Endurance":40,"Detail":"一般的な長さの剣。\n","setOn":false}
+{"Number":1,"Name":"ロングソード","Type":1,"Atk":11,"Def":4,"MgAtk":3,"MgDef":3,"Spd":1,"Luck":2,"Category":2,"Detail":"一般的な長さの剣。\n","setOn":false,"fileName":"Texture/Weapon/erice_weapon","spriteName":"erice_weapon_1"}

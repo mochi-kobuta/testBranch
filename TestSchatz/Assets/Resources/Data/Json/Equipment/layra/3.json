@@ -1,1 +1,1 @@
-{"Number":3,"Name":"ブラックダリア","Type":2,"Atk":23,"Def":20,"MgAtk":25,"MgDef":22,"Spd":3,"Luck":5,"Endurance":100,"Detail":"古代の魔女が残したとされる物体。異質な形状をしており\n扱いが難しい。その他お一切が詳細不明。","setOn":false}
+{"Number":3,"Name":"ブラックダリア","Type":2,"Atk":23,"Def":20,"MgAtk":25,"MgDef":22,"Spd":3,"Luck":5,"Category":8,"Detail":"古代の魔女が残したとされる物体。異質な形状をしており\n扱いが難しい。その他お一切が詳細不明。","setOn":false,"fileName":"Texture/Weapon/layra_weapon","spriteName":"layra_weapon_3"}

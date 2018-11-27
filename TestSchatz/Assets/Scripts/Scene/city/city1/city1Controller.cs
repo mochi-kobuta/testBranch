@@ -49,7 +49,7 @@ public class city1Controller : MonoBehaviour {
             json = aesCrypter.Encode(json);
             string path = Application.persistentDataPath + "/" + "SaveData/Player";
             DirectoryUtils.SafeCreateDirectory(path);
-            File.WriteAllText(path + "/" + ericeData.Name + ".json", json);
+            File.WriteAllText(path + "/erice.json", json);
 
             //レイラのデータ保存
             json = JsonUtility.ToJson(layraData);
@@ -57,7 +57,7 @@ public class city1Controller : MonoBehaviour {
             path = Application.persistentDataPath + "/" + "SaveData/Player";
             DirectoryUtils.SafeCreateDirectory(path);
 
-            File.WriteAllText(path + "/" + layraData.Name + ".json", json);
+            File.WriteAllText(path + "/layra.json", json);
 
             Debug.Log("SAVE_END");
         }

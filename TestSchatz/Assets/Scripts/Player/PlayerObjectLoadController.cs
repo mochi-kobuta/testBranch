@@ -90,18 +90,25 @@ public class PlayerObjectLoadController : MonoBehaviour
         else
         {
             //======レイラ======
-            //キャラデータ
+            //初期データ
+            layraObject.AddComponent<PlayerBaseController>();
+            layraObject.GetComponent<PlayerBaseController>().pData = new PlayerData();
+            layraObject.GetComponent<PlayerBaseController>().pData.EquipWeapon = new EquipmentData();
+            layraObject.GetComponent<PlayerBaseController>().pData.EquipArmor = new EquipmentData();
             profData = Resources.Load<TextAsset>("Data/Json/InitializeData/Player/layra");
-            JsonUtility.FromJsonOverwrite(profData.text, layraObject.AddComponent<PlayerBaseController>().pData);
-            //初期装備データ
+            JsonUtility.FromJsonOverwrite(profData.text, layraObject.GetComponent<PlayerBaseController>().pData);
             profData = Resources.Load<TextAsset>("Data/Json/Equipment/layra/0");
             JsonUtility.FromJsonOverwrite(profData.text, layraObject.GetComponent<PlayerBaseController>().pData.EquipWeapon);
 
+
             //======エリス======
-            //キャラデータ
-            profData = Resources.Load<TextAsset>("Data/Json/InitializeData/Player/erice");
-            JsonUtility.FromJsonOverwrite(profData.text, ericeObject.AddComponent<PlayerBaseController>().pData);
             //初期装備データ
+            ericeObject.AddComponent<PlayerBaseController>();
+            ericeObject.GetComponent<PlayerBaseController>().pData = new PlayerData();
+            ericeObject.GetComponent<PlayerBaseController>().pData.EquipWeapon = new EquipmentData();
+            ericeObject.GetComponent<PlayerBaseController>().pData.EquipArmor = new EquipmentData();
+            profData = Resources.Load<TextAsset>("Data/Json/InitializeData/Player/erice");
+            JsonUtility.FromJsonOverwrite(profData.text, ericeObject.GetComponent<PlayerBaseController>().pData);
             profData = Resources.Load<TextAsset>("Data/Json/Equipment/erice/0");
             JsonUtility.FromJsonOverwrite(profData.text, ericeObject.GetComponent<PlayerBaseController>().pData.EquipWeapon);
 
@@ -127,7 +134,8 @@ public class PlayerObjectLoadController : MonoBehaviour
             profData = Resources.Load<TextAsset>("Data/Json/InitializeData/Possession/possession");
             JsonUtility.FromJsonOverwrite(profData.text, possessionObject.AddComponent<PossessionBaseController>().possessionData);
         }
-        //DontDestroyOnLoad(possessionObject);
+        Debug.Log(possessionObject);
+        DontDestroyOnLoad(possessionObject);
     }
 }
 

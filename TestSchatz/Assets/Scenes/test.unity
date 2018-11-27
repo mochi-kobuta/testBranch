@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 488681869}
   - component: {fileID: 488681868}
   m_Layer: 0
-  m_Name: Endurance
+  m_Name: Category
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2209,7 @@ GameObject:
   - component: {fileID: 1897519087}
   - component: {fileID: 1897519086}
   m_Layer: 0
-  m_Name: "\u8010\u4E45\u529B"
+  m_Name: "\u30AB\u30C6\u30B4\u30EA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

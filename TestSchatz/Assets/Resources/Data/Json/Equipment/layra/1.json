@@ -1,1 +1,1 @@
-{"Number":1,"Name":"樫の木のつえ","Type":2,"Atk":7,"Def":4,"MgAtk":9,"MgDef":5,"Spd":1,"Luck":3,"Endurance":40,"Detail":"不思議な力の宿る木の枝から作られたつえ。","setOn":false}
+{"Number":1,"Name":"樫の木のつえ","Type":2,"Atk":7,"Def":4,"MgAtk":9,"MgDef":5,"Spd":1,"Luck":3,"Category":6,"Detail":"不思議な力の宿る木の枝から作られたつえ。","setOn":false,"fileName":"Texture/Weapon/layra_weapon","spriteName":"layra_weapon_1"}

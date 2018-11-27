@@ -19,9 +19,10 @@ namespace Equipment
         public int Spd;            //早さ
         public int Luck;           //運
 
-        public int Endurance;     //耐久度
+        public int Category;     //武器カテゴリ
         public string Detail;      //詳細
         public bool setOn;         //装備しているかどうか
-        //public int Weight;       //重さ
+        public string fileName;    //スプライトの元ファイル
+        public string spriteName;  //スプライトから取り出す画像の要素名
     }
 }
