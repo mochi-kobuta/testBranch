@@ -8,12 +8,14 @@ using System;
 using GameConstant;
 using System.Security.Cryptography;
 using Player;
+using Item;
 
 public class isonDataMaker : MonoBehaviour
 {
 
-    public Button EquipmenDatatMakeButton, PossesionDataMakeButton;
+    public Button EquipmenDatatMakeButton, PossesionDataMakeButton, ItemDataMakeButton;
     private EquipmentData equipmentData;
+    private ItemData ItemData;
 
     private TextAsset textAsset;
     private PossessionData possessionData;
@@ -22,6 +24,7 @@ public class isonDataMaker : MonoBehaviour
     {
         EquipmenDatatMakeButton.onClick.AddListener(EquipmenDataMake);
         PossesionDataMakeButton.onClick.AddListener(PossesionDataMake);
+        ItemDataMakeButton.onClick.AddListener(ItemDataMake);
     }
 
     // Update is called once per frame
@@ -66,17 +69,49 @@ public class isonDataMaker : MonoBehaviour
             File.WriteAllText("Assets\\Resources\\Data\\Json\\Equipment\\layra\\" + equipmentData.Number + ".json", json);
     }
 
+    public void ItemDataMake()
+    {
+        ItemData = new ItemData();
+
+        var Number = GameObject.Find("ItemData/makeParam/Number");
+        var Name = GameObject.Find("ItemData/makeParam/Name");
+        var EffectType = GameObject.Find("ItemData/makeParam/EffectType");
+        var Value1 = GameObject.Find("ItemData/makeParam/Value1");
+        var Value2 = GameObject.Find("ItemData/makeParam/Value2");
+        var Value3 = GameObject.Find("ItemData/makeParam/Value3");
+        var Count = GameObject.Find("ItemData/makeParam/Count");
+        var FileName = GameObject.Find("ItemData/makeParam/FileName");
+        var SpriteName = GameObject.Find("ItemData/makeParam/SpriteName");
+        var Detail = GameObject.Find("ItemData/makeParam/Detail");
+
+        ItemData.Number = Convert.ToInt32(Number.GetComponent<Text>().text);
+        ItemData.Name = Name.GetComponent<Text>().text;
+        ItemData.EffectType = Convert.ToInt32(EffectType.GetComponent<Text>().text);
+        ItemData.Value1 = Convert.ToInt32(Value1.GetComponent<Text>().text);
+        ItemData.Value2 = Convert.ToInt32(Value2.GetComponent<Text>().text);
+        ItemData.Value3 = Convert.ToInt32(Value3.GetComponent<Text>().text);
+        ItemData.Count = Convert.ToInt32(Count.GetComponent<Text>().text);
+        ItemData.FileName = FileName.GetComponent<Text>().text;
+        ItemData.SpriteName = SpriteName.GetComponent<Text>().text;
+        ItemData.Detail = Detail.GetComponent<Text>().text;
+
+        AesManaged aes = new AesManaged();
+        string json = JsonUtility.ToJson(ItemData);
+        File.WriteAllText("Assets\\Resources\\Data\\Json\\Item\\" + ItemData.Number + ".json", json);
+    }
+
     public void PossesionDataMake()
     {
         
         possessionData = new PossessionData();
-        possessionData.layraEquipList = new EquipmentData[4];
-        possessionData.ericeEquipList = new EquipmentData[4];
+        possessionData.layraEquipList = new EquipmentData[ConstantList.WEAPON_TOTAL_NUM];
+        possessionData.ericeEquipList = new EquipmentData[ConstantList.WEAPON_TOTAL_NUM];
+        possessionData.ItemList = new ItemData[ConstantList.ITEM_TOTAL_NUM];
 
         var maney = GameObject.Find("PossesionData/maney");
         possessionData.Maney = Convert.ToInt32(maney.GetComponent<Text>().text);
 
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < ConstantList.WEAPON_TOTAL_NUM; i++)
         {
             equipmentData = new EquipmentData();
             //jsonファイルからデシリアイズして各EquipmentDataのデータを登録するためにまたjsonに戻す
@@ -85,7 +120,7 @@ public class isonDataMaker : MonoBehaviour
             possessionData.layraEquipList[i] = equipmentData;
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < ConstantList.WEAPON_TOTAL_NUM; i++)
         {
             equipmentData = new EquipmentData();
             //jsonファイルからデシリアイズして各EquipmentDataのデータを登録するためにまたjsonに戻す
@@ -93,6 +128,16 @@ public class isonDataMaker : MonoBehaviour
             JsonUtility.FromJsonOverwrite(textAsset.text, equipmentData);
             possessionData.ericeEquipList[i] = equipmentData;
         }
+
+        for (int i = 0; i < ConstantList.ITEM_TOTAL_NUM; i++)
+        {
+            ItemData = new ItemData();
+            //jsonファイルからデシリアイズして各EquipmentDataのデータを登録するためにまたjsonに戻す
+            textAsset = Resources.Load<TextAsset>("Data/Json/Item/" + i);
+            JsonUtility.FromJsonOverwrite(textAsset.text, ItemData);
+            possessionData.ItemList[i] = ItemData;
+        }
+
         string json = JsonUtility.ToJson(possessionData);
         File.WriteAllText("Assets\\Resources\\Data\\Json\\InitializeData\\Possession\\possession.json", json);
 

@@ -46,7 +46,8 @@ namespace GameConstant {
             古代具 = 8
         }
 
-        public const int BEGNING_WEAPON_LAYLA = 0;
-        public const int BEGNING_WEAPON_ERICE = 0;
+        public const int WEAPON_TOTAL_NUM = 4;
+        public const int ITEM_TOTAL_NUM = 6;
+
     }
 }

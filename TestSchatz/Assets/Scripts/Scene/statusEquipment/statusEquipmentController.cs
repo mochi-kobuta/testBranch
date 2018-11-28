@@ -47,16 +47,12 @@ public class statusEquipmentController : MonoBehaviour {
     void Start () {
         var gOb = gameObject.GetComponent<PlayerObjectLoadController>();
         gOb.initLoad();
-        //gOb.PossessionLoad();
-
+        
         //所持データ
         possessionData = GameObject.Find("possessionData").GetComponent<PossessionBaseController>().possessionData;
 
-
+        //STATEの初期化
         state = STATE.初期読み込み_設定;
-
-        
-
     }
 
     void Update()
@@ -68,45 +64,43 @@ public class statusEquipmentController : MonoBehaviour {
 
         switch (state)
         {
-            
             case STATE.初期読み込み_設定:
                 DataLoad();
                 break;
 
             case STATE.決定待ち:
-
+                //処理は特にしない
                 break;
 
             case STATE.更新:
-                UpdateEquipDataList();
-                DataLoad();
+                DataLoad(true);
                 break;
         }
-
-       
     }
 
-
-    void DataLoad()
+    //読み込み処理
+    void DataLoad(bool set = false)
     {
         if (CommonValue.charaType == (int)ConstantList.charactorType.エリス)
         {
-            equipImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_1");
-            pData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
+            if(pData == null)
+                pData = GameObject.Find("ericeData").GetComponent<PlayerBaseController>().pData;
+
             paramSet(pData.EquipWeapon);
-            this.posseionEquipSet(possessionData.ericeEquipList);
+            this.posseionEquipSet(possessionData.ericeEquipList, set);
         }
         else if (CommonValue.charaType == (int)ConstantList.charactorType.レイラ)
         {
-            equipImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile("Texture/Parts/charactorProfile", "charactorProfile_0");
-            pData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;
+            if (pData == null)
+                pData = GameObject.Find("layraData").GetComponent<PlayerBaseController>().pData;
+
             paramSet(pData.EquipWeapon);
-            this.posseionEquipSet(possessionData.layraEquipList);
+            this.posseionEquipSet(possessionData.layraEquipList, set);
         }
     }
 
 
-
+    //表示装備パラメータ設定
     void paramSet(EquipmentData eData, bool change = false)
     {
         if(!change)
@@ -127,56 +121,83 @@ public class statusEquipmentController : MonoBehaviour {
             charaName.text = pData.Name;
             weaponName.text = pData.EquipWeapon.Name + "\r\n" + "↓" + "\r\n" + eData.Name;
             armorName.text = pData.EquipArmor.Name;
-            atk.text = "攻:" + (pData.EquipWeapon.Atk + pData.Atk).ToString() + "→" + (pData.EquipWeapon.Atk + eData.Atk).ToString();
-            def.text = "防:" + (pData.EquipWeapon.Def + pData.Def).ToString() + "→" + (pData.EquipWeapon.Def + eData.Def).ToString(); ;
-            mAtk.text = "魔攻:" + (pData.EquipWeapon.MgAtk + pData.MgAtk).ToString() + "→" + (pData.EquipWeapon.MgAtk + eData.MgAtk).ToString();
-            mDef.text = "魔防:" + (pData.EquipWeapon.MgDef + pData.MgDef).ToString() + "→" + (pData.EquipWeapon.MgDef + eData.MgDef).ToString();
-            luck.text = "運:" + (pData.EquipWeapon.Luck + pData.Luck).ToString() + "→" + (pData.EquipWeapon.Luck + eData.Luck).ToString();
-            speed.text = "早:" + (pData.EquipWeapon.Spd + pData.Spd).ToString() + "→" + (pData.EquipWeapon.Spd + eData.Spd).ToString();
+            atk.text = "攻:" + (pData.EquipWeapon.Atk + pData.Atk).ToString() + "→" + (pData.Atk + eData.Atk).ToString();
+            def.text = "防:" + (pData.EquipWeapon.Def + pData.Def).ToString() + "→" + (pData.Def + eData.Def).ToString(); ;
+            mAtk.text = "魔攻:" + (pData.EquipWeapon.MgAtk + pData.MgAtk).ToString() + "→" + (pData.MgAtk + eData.MgAtk).ToString();
+            mDef.text = "魔防:" + (pData.EquipWeapon.MgDef + pData.MgDef).ToString() + "→" + (pData.MgDef + eData.MgDef).ToString();
+            luck.text = "運:" + (pData.EquipWeapon.Luck + pData.Luck).ToString() + "→" + (pData.Luck + eData.Luck).ToString();
+            speed.text = "早:" + (pData.EquipWeapon.Spd + pData.Spd).ToString() + "→" + (pData.Spd + eData.Spd).ToString();
             detail.text = eData.Detail;
             equipImage.sprite = gameObject.GetComponent<multipleSliceImageLoadController>().ReadMutipleImageFile(eData.fileName, eData.spriteName);
         }
     }
 
-    void posseionEquipSet(EquipmentData[] elements)
+    //所持装備の表示設定
+    void posseionEquipSet(EquipmentData[] elements, bool change = false)
     {
-        // Itemを生成
+        //変更後の装備の番号格納用
+        int indexNumber = 0;
+
         foreach(var elm in elements) {
-            //装備中の武器は飛ばす
-            if(elm.setOn)
+            
+            if (!change)
             {
-                continue;
+                var equipFrame = GameObject.Instantiate(prefab) as RectTransform;
+                // Contentの子として登録
+                equipFrame.name = elm.Number.ToString();
+                equipFrame.SetParent(content, false);
+
+                var equipDetail = equipFrame.FindChild("equipDetail");
+
+                var equipName = equipDetail.FindChild("equip");
+                var detail = equipDetail.FindChild("deteil");
+                var changeButton = equipFrame.FindChild("Button");
+
+                //武器名と詳細、ボタン処理追加
+                equipName.GetComponent<Text>().text = elm.Name;
+
+                detail.GetComponent<Text>().text = "種別:" + (ConstantList.weaponCategory)elm.Category;
+
+                //他武器の詳細表示
+                equipDetail.GetComponent<Button>().onClick.AddListener(() => { paramSet(elm, true); });
+
+                //他武器に変更
+                changeButton.GetComponent<Button>().onClick.AddListener(() => { changeEquipSet(elm); });
+
+                //装備中の武器は非活性
+                if (elm.setOn)
+                    equipFrame.gameObject.SetActive(false);
+            } else {
+                //変更後の装備の番号格納
+                if (elm.setOn)
+                    indexNumber = elm.Number;
             }
-
-            var equipFrame = GameObject.Instantiate(prefab) as RectTransform;
-            // Contentの子として登録  
-            equipFrame.SetParent(content, false);
             
-            var equipDetail = equipFrame.FindChild("equipDetail");
-
-            var equipName = equipDetail.FindChild("equip");
-            var detail = equipDetail.FindChild("deteil");
-            var changeButton = equipFrame.FindChild("Button");
-            
-            //武器名と詳細、ボタン処理追加
-            equipName.GetComponent<Text>().text = elm.Name;
-
-            detail.GetComponent<Text>().text = "種別:" + (ConstantList.weaponCategory)elm.Category;
-
-            //他武器の詳細表示
-            equipDetail.GetComponent<Button>().onClick.AddListener(() => { paramSet(elm, true); });
-
-            //他武器に変更
-            changeButton.GetComponent<Button>().onClick.AddListener(() => { changeEquipSet(elm); });
-
             //STATEの健康
             state = STATE.決定待ち;
         }
+
+        if(change) {
+            RectTransform[] putFrame;
+            putFrame = new RectTransform[ConstantList.WEAPON_TOTAL_NUM];
+            for (int i = 0; i < putFrame.Length; i++)
+            {
+                putFrame[i] = GameObject.Find(string.Format("Viewport/Content/{0}", i)).GetComponent<RectTransform>();
+
+                if (putFrame[i].gameObject.name != indexNumber.ToString())
+                {              
+                    putFrame[i].gameObject.SetActive(true);
+                } else {
+                    Debug.Log("ddddd");
+                    putFrame[i].gameObject.SetActive(false);
+                }             
+            }
+        }
     }
 
+    //装備変更処理
     void changeEquipSet(EquipmentData eData)
     {
-        //武器変更
         pData.EquipWeapon = eData;
         
         if (CommonValue.charaType == (int)ConstantList.charactorType.エリス)
@@ -186,8 +207,10 @@ public class statusEquipmentController : MonoBehaviour {
                 //所持リストの装備のON/OFF切り替え
                 if(equip.Number == eData.Number)
                 {
+                    //Debug.Log(equip.Number);
                     equip.setOn = true;
                 } else {
+                    //Debug.Log(equip.Number);
                     equip.setOn = false;
                 }
             }
@@ -210,13 +233,5 @@ public class statusEquipmentController : MonoBehaviour {
 
         //STATEの健康
         state = STATE.更新;
-    }
-
-
-    //更新用
-    void UpdateEquipDataList()
-    {
-        var FrameList = GameObject.Find("Scroll View/Viewport/Content/equipFrame");
-        Destroy(FrameList);
     }
 }
