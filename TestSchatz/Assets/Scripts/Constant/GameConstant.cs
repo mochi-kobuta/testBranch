@@ -46,6 +46,13 @@ namespace GameConstant {
             古代具 = 8
         }
 
+        public enum itemEffectType
+        {
+            HP回復系 = 0,
+            TP回復系 = 1,
+            気絶回復 = 2
+        }
+
         public const int WEAPON_TOTAL_NUM = 4;
         public const int ITEM_TOTAL_NUM = 6;
 
